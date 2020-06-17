@@ -8,13 +8,14 @@ RUN apt install git -y
 RUN apt install unzip -y
 RUN apt install git -y
 RUN apt install bash -y
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
 
 RUN mkdir /etc/ct
 RUN chgrp -R 0 /etc/ct
 RUN chmod -R g+rwX /etc/ct
 
-curl -sL https://deb.nodesource.com/setup_14.x | bash -
-apt-get install -y nodejs
+
 
 ADD configure.sh /configure.sh
 RUN chmod +x /configure.sh
