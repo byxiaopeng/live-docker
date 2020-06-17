@@ -6,6 +6,7 @@ RUN apt install wget -y
 RUN apt install curl -y
 RUN apt install git -y
 RUN apt install unzip -y
+RUN apt install git -y
 RUN apt install bash -y
 
 RUN mkdir /etc/ct
