@@ -8,6 +8,7 @@ RUN apt install git -y
 RUN apt install unzip -y
 RUN apt install git -y
 RUN apt install bash -y
+RUN apt install sudo -y
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
