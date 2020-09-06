@@ -15,12 +15,8 @@ RUN apt-get install -y nodejs
 RUN mkdir /etc/ct
 RUN chgrp -R 0 /etc/ct
 RUN chmod -R g+rwX /etc/ct
-
-
-
-ADD configure.sh /configure.sh
-RUN chmod +x /configure.sh
-
-ENTRYPOINT ["sh", "/configure.sh"]
-
+RUN cd /etc/ct  && git clone https://github.com/Davenchy/live-torrent
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 EXPOSE 3000
+ENTRYPOINT ["/entrypoint.sh"]
