@@ -18,5 +18,5 @@ RUN chmod -R g+rwX /etc/ct
 RUN cd /etc/ct && git clone https://github.com/Davenchy/live-torrent && cd /etc/ct/live-torrent && sed -i "s/4.13.1/4.14.1/g" /etc/ct/live-torrent/package.json && npm install && npm run build
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-EXPOSE 8080
+EXPOSE 3000
 ENTRYPOINT ["/entrypoint.sh"]
