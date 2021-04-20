@@ -2,13 +2,7 @@ FROM debian:latest
 #更新源
 RUN apt-get -y update && apt-get -y upgrade
 ENV PORT 8080
-RUN apt install wget -y
-RUN apt install curl -y
-RUN apt install git -y
-RUN apt install unzip -y
-RUN apt install git -y
-RUN apt install bash -y
-RUN apt install sudo -y
+RUN apt -y install wget curl git unzip bash sudo
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
