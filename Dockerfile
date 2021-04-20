@@ -1,7 +1,7 @@
 FROM debian:latest
 #更新源
 RUN apt-get -y update && apt-get -y upgrade
-
+ENV PORT 8080
 RUN apt install wget -y
 RUN apt install curl -y
 RUN apt install git -y
