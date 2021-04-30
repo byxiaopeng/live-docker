@@ -1,9 +1,10 @@
-FROM debian:latest
-#更新源
-RUN apt-get -y update && apt-get -y upgrade
-RUN apt -y install wget curl git unzip bash sudo
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs
+FROM alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN set -ex \
+        && apk update && apk upgrade \
+        && apk add tzdata curl wget git bash perl nodejs npm \
+        && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+        && echo "Asia/Shanghai" > /etc/timezone
 
 RUN mkdir /etc/ct
 RUN chgrp -R 0 /etc/ct
